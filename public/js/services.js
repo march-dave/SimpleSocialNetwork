@@ -27,13 +27,9 @@ app.service('MybookService', function($http, $q) {
   this.profile = user => {
    return $http.get('/api/users/profile', user);
   };
-
 });
 
-
 app.service('UserService', function($http, $q) {
-
-
   console.log('UserService');
 
   this.set = function(user) {

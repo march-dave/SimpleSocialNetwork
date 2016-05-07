@@ -10,7 +10,6 @@ app.controller('homeCtrl', function($scope, $q, $http) {
 
 app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserService) {
 
-
   $scope.userLogin = () => {
     $scope.loggedIn = false;
 
@@ -18,12 +17,14 @@ app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserS
     MybookService.login($scope.login)
     .then( ( res )  => {
 
-      console.log('res.data:', res.data);
+      // $http.defaults.headers.common['Authorization'] = 'Bearer' + res.data;
+      // console.log('$http.defaults.headers.common[Authorization] :', $http.defaults.headers.common['Authorization']);
+      // console.log('res.data:', res.data);
 
       UserService.set(res.data);
       $scope.loggedIn = true;
 
-      $state.go('login');
+      $state.go("profile", {"user": res.data});
 
     })
     .catch(err => {
@@ -43,20 +44,17 @@ app.controller('logoutCtrl', function($scope, $state, $q, $http) {
 app.controller('registerCtrl', function($scope, $state, $q, $http, MybookService) {
 
   $scope.userRegister = () => {
-
     MybookService.register($scope.register);
-
-
-    // console.log('registerCtrl');
-
-      // $state.go('login');
-
-
   }
 
 });
 
 
 app.controller('profileCtrl', function($scope, $state, $q, $http) {
+
+    var t = $state.params.user;
+    console.log('t: ', t);
+
+  // MybookService.profile
 
 });
