@@ -49,12 +49,12 @@ userSchema.statics.authenticate = function(userObj, cb) {
 
     var token = dbUser.makeToken();
 
-    cb(null, token);
+    cb(null, {token, dbUser});
   });
 };
 
 userSchema.methods.makeToken = function() {
-  var token = jwt.sign({ _id: this._id }, JWT_SECRET);
+  var token = jwt.sign({ _id: this._id, username: this.username }, JWT_SECRET);
   return token;
 };
 

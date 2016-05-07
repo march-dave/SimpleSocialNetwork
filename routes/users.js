@@ -18,10 +18,10 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  User.authenticate(req.body, (err, token) => {
+  User.authenticate(req.body, (err, data) => {
     if(err) return res.status(400).send(err);
 
-    res.cookie('accessToken', token).send(token);
+    res.cookie('accessToken', data.token).send(data.dbUser);
   });
 });
 
