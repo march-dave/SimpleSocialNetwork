@@ -1,6 +1,6 @@
 'use strict';
 
-  var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 
 const JWT_SECRET = process.env.JWT_SECRET;

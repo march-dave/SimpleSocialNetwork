@@ -15,10 +15,7 @@ mongoose.connect(MONGOURL, err => {
   console.log(err || `MongoDB connect to ${MONGOURL}`);
 });
 
-var app = express();  
-
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
+var app = express();
 
 var app = express();
 
