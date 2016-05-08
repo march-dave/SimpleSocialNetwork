@@ -18,13 +18,22 @@
 </head>
 <body ng-app='mybookApp'>
 
-  <div class='containter'>
-    <h5>Mybook/Facespace</h5>
-    <div>
-      <button ui-sref="register">Register</button>
-      <button ui-sref="login">Login</button>
+  <div class="container">
+    <div class="row">
+      <button class="btn btn-sm btn-default" ui-sref='home'>Home</button>
+      <span ng-hide='currentUser'>
+        <button class="btn btn-sm btn-default" ui-sref='login'>Login</button>
+        <button class="btn btn-sm btn-default" ui-sref='register'>Register</button>
+      </span>
+      <span ng-show='currentUser'>
+        <button class="btn btn-sm btn-default" ui-sref='profile'>Profile</button>
+        <button class="btn btn-sm btn-default" ng-click='logout()'>Logout</button>
+        <span>Hello {{currentUser.username}}!</span>
+      </span>
     </div>
+
     <ui-view></ui-view>
+
   </div>
 </body>
 </html>

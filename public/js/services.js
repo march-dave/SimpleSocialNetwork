@@ -13,19 +13,31 @@ app.service('MybookService', function($http, $q) {
   //   .then(res => $q.resolve(res.data));
   // };
   this.register = function(user) {
-
-    console.log('Register: user', user);
-
      return $http.post(`/api/users/register/`, user);
   };
   this.login = user => {
-   return $http.post('/api/users/login', user);
+   return $http.post('/api/users/login', user)
+    .then(res => {
+      return this.getProfile();
+    });
   };
-  this.logout = user => {
-    return $http.delete('/api/users/logout', user);
+  this.logout = () => {
+    return $http.delete('/api/users/logout')
+    .then(res => {
+        this.currentUser = null;
+        return $q.resolve();
+    });
   };
-  this.profile = user => {
-   return $http.get('/api/users/profile', user);
+  this.getProfile = () => {
+   return $http.get('/api/users/profile')
+    .then(res => {
+        this.currentUser = res.data;
+        return $q.resolve(res.data);
+    })
+    .catch(res => {
+        this.currentUser = null;
+        return $q.reject(res.data);
+    });
   };
 });
 
