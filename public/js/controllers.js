@@ -56,22 +56,13 @@ app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserS
     MybookService.login($scope.login)
     .then( ( res )  => {
 
-      // $http.defaults.headers.common['Authorization'] = 'Bearer' + res.data;
-      // console.log('$http.defaults.headers.common[Authorization] :', $http.defaults.headers.common['Authorization']);
-      // console.log('res.data:', res.data);
-
       UserService.set(res.data);
       $scope.loggedIn = true;
-
       $state.go("profile", {"user": res.data});
-
     })
     .catch(err => {
       console.log('err', err.data);
     });
-
-
-    // MybookService.login($scope.login);
   }
 
 });

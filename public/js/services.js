@@ -4,14 +4,6 @@ var app = angular.module('mybookApp');
 
 app.service('MybookService', function($http, $q) {
 
-  // this.getAll = () => {
-  //   return $http({
-  //     method: "GET",
-  //     url: `/api/clients`,
-  //     cache: false
-  //   })
-  //   .then(res => $q.resolve(res.data));
-  // };
   this.register = function(user) {
      return $http.post(`/api/users/register/`, user);
   };
