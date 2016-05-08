@@ -30,11 +30,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/html/authForm.html',
       controller: 'authFormCtrl'
     })
-    .state('logout', {
-      url: '/logout',
-      templateUrl: '/html/logout.html',
-      controller: 'logoutCtrl'
-    })
     .state('profile', {
       url: '/profile',
       templateUrl: '/html/profile.html',

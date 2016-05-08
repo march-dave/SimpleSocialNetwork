@@ -7,8 +7,23 @@ app.controller('homeCtrl', function($scope, $q, $http) {
   // $scope.clients = clientDex;
 });
 
+app.controller('mainCtrl', function($scope, $state, MybookService) {
+
+  $scope.$watch(function() {
+    return MybookService.currentUser;
+  }, function(newVal, oldVal) {
+    $scope.currentUser = newVal;
+  });
+
+  $scope.logout = () => {
+    MybookService.logout()
+      .then(res => {
+        $state.go('home');
+      })
+  }
+});
+
 app.controller('authFormCtrl', function($scope, $state, MybookService) {
-  console.log('authFormCtrl!');
 
   $scope.currentState = $state.current.name;
 
