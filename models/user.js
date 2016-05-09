@@ -9,9 +9,17 @@ if(!JWT_SECRET) {
   throw new Error('Missing JWT_SECRET');
 }
 
+// profile image
+// biography
+// links
+// etc.
+
 var userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  image: { type: String, required: true },
+  biography: { type: String, required: true },
+  etc: { type: String, required: true }
 });
 
 // IT'S MIDDLEWARE!!
