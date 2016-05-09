@@ -1,11 +1,10 @@
 <div class='row'>
 
-<pre>{{currentUser | json}}</pre>
-
-profile image
-biography
-links
-etc.
-
+  <pre>
+  Image: <img ng-src="http://{{currentUser.image}}" class="img-rounded" />
+  User Name: {{currentUser.name}}
+  Biography:  {{currentUser.biography}}
+  Etc: {{currentUser.etc}}
+  </pre>
 
 </div>
