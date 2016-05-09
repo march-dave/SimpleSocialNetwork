@@ -62,31 +62,27 @@ app.controller('authFormCtrl', function($scope, $state, MybookService) {
 
 });
 
-app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserService) {
-
-  $scope.userLogin = () => {
-    $scope.loggedIn = false;
-
-    console.log("scope.login in userlogin function", $scope.login);
-    MybookService.login($scope.login)
-    .then( ( res )  => {
-
-      UserService.set(res.data);
-      $scope.loggedIn = true;
-      $state.go("profile", {"user": res.data});
-    })
-    .catch(err => {
-      console.log('err', err.data);
-    });
-  }
-
-});
-
+// app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserService) {
+//
+//   $scope.userLogin = () => {
+//     $scope.loggedIn = false;
+//
+//     console.log("scope.login in userlogin function", $scope.login);
+//     MybookService.login($scope.login)
+//     .then( ( res )  => {
+//
+//       UserService.set(res.data);
+//       $scope.loggedIn = true;
+//       $state.go("profile", {"user": res.data});
+//     })
+//     .catch(err => {
+//       console.log('err', err.data);
+//     });
+//   }
+//
+// });
+//
 app.controller('profileCtrl', function($scope, $state, $q, $http) {
-
     var t = $state.params.user;
-    console.log('t: ', t);
-
-  // MybookService.profile
-
+    // console.log('t: ', t);
 });

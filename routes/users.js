@@ -18,11 +18,17 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  User.authenticate(req.body, (err, data) => {
+  User.authenticate(req.body, (err, token) => {
     if(err) return res.status(400).send(err);
 
-    res.cookie('accessToken', data.token).send(data.dbUser);
+    res.cookie('accessToken', token).send(token);
   });
+  
+  // User.authenticate(req.body, (err, data) => {
+  //   if(err) return res.status(400).send(err);
+  //
+  //   res.cookie('accessToken', data.token).send(data.dbUser);
+  // });
 });
 
 router.delete('/logout', (req, res) => {
