@@ -82,19 +82,6 @@ app.controller('loginCtrl', function($scope, $state, $http, MybookService, UserS
 
 });
 
-app.controller('logoutCtrl', function($scope, $state, $q, $http) {
-
-});
-
-app.controller('registerCtrl', function($scope, $state, $q, $http, MybookService) {
-
-  $scope.userRegister = () => {
-    MybookService.register($scope.register);
-  }
-
-});
-
-
 app.controller('profileCtrl', function($scope, $state, $q, $http) {
 
     var t = $state.params.user;

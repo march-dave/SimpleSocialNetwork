@@ -2,15 +2,19 @@
 
 var app = angular.module('mybookApp', ['ui.router']);
 
-// var resolveObj = {
-//   profile: function(Auth, $q, $state) {
-//     return Auth.getProfile()
-//     .catch(() => {
-//       $state.go('home');
-//       return $q.reject();
-//     });
-//   }
-// }
+app.run(function(MybookService) {
+  MybookService.getProfile();
+});
+
+var resolveObj = {
+  profile: function(MybookService, $q, $state) {
+    return MybookService.getProfile()
+    .catch(() => {
+      $state.go('home');
+      return $q.reject();
+    });
+  }
+}
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -33,14 +37,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('profile', {
       url: '/profile',
       templateUrl: '/html/profile.html',
-      controller: 'profileCtrl'
-      // ,resolve:
+      controller: 'profileCtrl',
+      resolve: resolveObj
     })
     $urlRouterProvider.otherwise('/');
 });
 
-// app.filter('titlecase', function() {
-//   return function(input) {
-//     return input[0].toUppserCase() + input.slice(1).toLowerCase();
-//   };
-// });
+app.filter('titlecase', function() {
+  return function(input) {
+    return input[0].toUpperCase() + input.slice(1).toLowerCase();
+  };
+});

@@ -32,17 +32,3 @@ app.service('MybookService', function($http, $q) {
     });
   };
 });
-
-app.service('UserService', function($http, $q) {
-  console.log('UserService');
-
-  this.set = function(user) {
-    console.log('user: ', user);
-    console.log('user.username: ', user.username);
-    console.log('user type: ', typeof user);
-
-    this.username = user.username;
-  };
-
-
-});

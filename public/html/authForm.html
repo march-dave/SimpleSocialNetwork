@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-xs-8 cols-xs-offset-2">
-  <!-- <h1>{{currentState | titlecase}}</h1> -->
-  <h1>{{currentState}}</h1>
+  <h1>{{currentState | titlecase}}</h1>
 
   <form ng-submit='submitForm()'>
 
@@ -20,8 +19,8 @@
           <input type="password" class="form-control" required ng-model='user.password2'>
         </div>
 
-        <!-- <button class="btn btn-primary">{{currentState | titlecase}}</button> -->
-        <button class="btn btn-primary">{{currentState}}</button>
+        <button class="btn btn-primary">{{currentState | titlecase }}</button>
+        <!-- <button class="btn btn-primary">{{currentState}}</button> -->
 
       </form>
 
