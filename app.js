@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-const MONGOURL = 'mongodb://localhost/SSN';
+const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/SSN';
 
 mongoose.connect(MONGOURL, err => {
   console.log(err || `MongoDB connect to ${MONGOURL}`);
