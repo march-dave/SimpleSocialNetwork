@@ -1,19 +1,9 @@
-<!-- <div class='row'>
-  <pre>
-    Image: <img ng-src="http://{{currentUser.image}}" class="img-rounded" />
-    User Name: {{currentUser.username}}
-    Biography:  {{currentUser.biography}}
-    Etc: {{currentUser.etc}}
-  </pre>
-</div> -->
-
-
 <div class="ui cards">
   <div class="card">
     <div class="content">
       <img class="right floated ui image" ng-src="http://{{currentUser.image}}">
       <div class="header">
-        User Name: {{currentUser.name}}
+        User Name: {{currentUser.username}}
       </div>
       <div class="meta">
         Biography:  {{currentUser.biography}}
@@ -22,16 +12,16 @@
         Etc: {{currentUser.etc}}
       </div>
     </div>
-    <div class="extra content">
+    <!-- <div class="extra content">
       <div class="ui two buttons">
         <div class="ui basic green button">Approve</div>
         <div class="ui basic red button">Decline</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
-<!-- 
+<!--
 <div class="ui link cards">
   <div class="card">
     <div class="image">
