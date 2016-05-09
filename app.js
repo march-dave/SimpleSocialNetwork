@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/SSN';
 
 mongoose.connect(MONGOURL, err => {
-  console.log(err || `MongoDB connect to ${MONGOURL}`);
+  console.log(err || `MongoDB connected to ${MONGOURL}`);
 });
 
 var app = express();

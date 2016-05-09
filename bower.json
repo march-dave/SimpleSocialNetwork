@@ -3,10 +3,10 @@
   "description": "",
   "main": "",
   "authors": [
-    ""
+    "Cade Nichols <cade@cadenichols.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/CodingHouseFI/intro-to-auth",
   "ignore": [
     "**/.*",
     "node_modules",
