@@ -19,17 +19,17 @@
           <input type="password" class="form-control" required ng-model='user.password2'>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-if='currentState === "register"'>
           <label>image</label>
           <input type="text" class="form-control" required ng-model='user.image'>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-if='currentState === "register"'>
           <label>biography</label>
           <input type="text" class="form-control" required ng-model='user.biography'>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-if='currentState === "register"'>
           <label>etc</label>
           <input type="text" class="form-control" required ng-model='user.etc'>
         </div>
